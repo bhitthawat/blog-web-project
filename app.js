@@ -106,7 +106,7 @@ app.post("/", function (req, res) {
   const postDelete = req.body.postDelete;
   console.log(postDelete);
 
-  blog.deleteOne({ startingContent: postDelete }, function (err) {
+  blog.deleteOne({ title: postDelete }, function (err) {
     if (!err) {
       res.redirect("/");
     }
