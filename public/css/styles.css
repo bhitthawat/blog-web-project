@@ -4,11 +4,26 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   color: #333;
   line-height: 1.5;
+  font-size: 2rem;
+  position: relative;
+  min-height: 100vh;
 }
 
+h1 {
+  margin-bottom: 16px;
+  font-size: 2.6rem;
+}
+
+h2 {
+  font-size: 2.6rem;
+}
 .container {
   padding: 1% 10%;
   background-color: #5c7cfa;
@@ -27,6 +42,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.6rem;
 }
 
 ul {
@@ -41,6 +57,11 @@ a {
 
 a:hover {
   color: #bac8ff;
+}
+
+.read-more {
+  color: #5c7cfa;
+  font-size: 1.6rem;
 }
 
 .brand {
@@ -60,12 +81,25 @@ a:hover {
   padding: 0.2% 0;
   text-align: center;
   color: white;
+  font-size: 1.2rem;
 }
 
 .posts {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.post {
+  display: flex;
+}
+
+.blog {
+  flex-grow: 1;
+}
+
+.delete-form {
+  align-self: flex-end;
 }
 
 .header {
@@ -88,10 +122,6 @@ textarea {
   margin-bottom: 16px;
 }
 
-h1 {
-  margin-bottom: 16px;
-}
-
 .btn {
   background-color: #1971c2;
   border: 3px solid white;
@@ -109,9 +139,6 @@ h1 {
 }
 
 .delete {
-  display: inline-block;
-  position: absolute;
-  right: 0;
   background-color: #e64980;
   border-radius: 100px;
   padding: 8px 16px;
@@ -120,6 +147,8 @@ h1 {
   color: white;
 }
 
-.post {
-  position: relative;
+@media screen and (max-width: 1000px) {
+  .main-blog {
+    padding: 10rem 10rem;
+  }
 }
