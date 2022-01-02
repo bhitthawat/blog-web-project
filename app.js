@@ -1,6 +1,5 @@
 //jshint esversion:6
-const dotenv = require("dotenv");
-dotenv.config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -8,6 +7,8 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const request = require("request");
 const { isNull } = require("lodash");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const homeStartingContent =
   "สวัสดีครับพี่ๆจากทุกบริษัท ยินดีต้อนรับสู่โปรเจคเว็บ Blog ของผมที่จัดทำขึ้นนะครับ พี่ๆสามารถกดปุ่ม COMPOSE (มุมขวาบน) เพื่อโพสต์ข้อความในเว็บ Blog และสามารถกดปุ่ม Delete เพื่อลบโพสต์ได้ครับ ขอให้สนุกกับโปรเจคของผมครับ ❤";
@@ -77,9 +78,11 @@ app.post("/compose", function (req, res) {
       },
     },
     (err, httpResponse, body) => {
-      console.log(JSON.stringify(err));
-      console.log(JSON.stringify(httpResponse));
-      console.log(JSON.stringify(body));
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(body);
+      }
     }
   );
 });
