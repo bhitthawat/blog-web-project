@@ -35,12 +35,12 @@ ul {
 }
 
 a {
-  color: #bac8ff;
+  color: #edf2ff;
   transition: all 0.3s;
 }
 
 a:hover {
-  color: #364fc7;
+  color: #bac8ff;
 }
 
 .brand {
@@ -49,7 +49,7 @@ a:hover {
 }
 
 .main-blog {
-  padding: 5% 20%;
+  padding: 5% 25%;
 }
 
 .footer-padding {

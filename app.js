@@ -1,14 +1,16 @@
 //jshint esversion:6
-
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const request = require("request");
 const { isNull } = require("lodash");
 
 const homeStartingContent =
-  "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
+  "สวัสดีครับพี่ๆจากทุกบริษัท ยินดีต้อนรับสู่โปรเจคเว็บ Blog ของผมที่จัดทำขึ้นนะครับ พี่ๆสามารถกดปุ่ม COMPOSE (มุมขวาบน) เพื่อโพสต์ข้อความในเว็บ Blog และสามารถกดปุ่ม Delete เพื่อลบโพสต์ได้ครับ ขอให้สนุกกับโปรเจคของผมครับ ❤";
 const aboutContent =
   "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent =
@@ -58,6 +60,32 @@ app.post("/compose", function (req, res) {
   newPost.save(function (err) {
     res.redirect("/");
   });
+
+  const url_line_notification = "https://notify-api.line.me/api/notify";
+
+  request(
+    {
+      method: "POST",
+      uri: url_line_notification,
+      header: {
+        "Content-Type": "multipart/form-data",
+      },
+      auth: {
+        bearer: process.env.TOKEN,
+      },
+      form: {
+        message:
+          "\nชื่อโพสต์: " + post.title + "\n" + "เนื้อหา: " + post.content,
+      },
+    },
+    (err, httpResponse, body) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(body);
+      }
+    }
+  );
 });
 
 app.get("/posts/:postName", function (req, res) {
@@ -88,8 +116,10 @@ app.post("/", function (req, res) {
   });
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 8000;
+// }
+// app.listen(port);
+
+app.listen(3000);
