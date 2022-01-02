@@ -61,14 +61,12 @@ app.post("/compose", function (req, res) {
     res.redirect("/");
   });
 
-  const url_line_notification = "https://notify-api.line.me/api/notify";
-
   request(
     {
       method: "POST",
-      uri: url_line_notification,
-      header: {
-        "Content-Type": "multipart/form-data",
+      uri: "https://notify-api.line.me/api/notify",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       auth: {
         bearer: process.env.TOKEN,
@@ -79,11 +77,9 @@ app.post("/compose", function (req, res) {
       },
     },
     (err, httpResponse, body) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(body);
-      }
+      console.log(JSON.stringify(err));
+      console.log(JSON.stringify(httpResponse));
+      console.log(JSON.stringify(body));
     }
   );
 });
