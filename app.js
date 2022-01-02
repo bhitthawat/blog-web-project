@@ -7,8 +7,6 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const request = require("request");
 const { isNull } = require("lodash");
-const dotenv = require("dotenv");
-dotenv.config();
 
 const homeStartingContent =
   "สวัสดีครับพี่ๆจากทุกบริษัท ยินดีต้อนรับสู่โปรเจคเว็บ Blog ของผมที่จัดทำขึ้นนะครับ พี่ๆสามารถกดปุ่ม COMPOSE (มุมขวาบน) เพื่อโพสต์ข้อความในเว็บ Blog และสามารถกดปุ่ม Delete เพื่อลบโพสต์ได้ครับ ขอให้สนุกกับโปรเจคของผมครับ ❤";
@@ -70,7 +68,7 @@ app.post("/compose", function (req, res) {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       auth: {
-        bearer: process.env.TOKEN,
+        bearer: "tCTzhJ91NOYoKA0C9x2jsW4HdYU5EFOdxWob6vKeR79",
       },
       form: {
         message:
