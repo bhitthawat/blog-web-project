@@ -149,6 +149,25 @@ textarea {
 
 @media screen and (max-width: 1000px) {
   .main-blog {
-    padding: 10rem 10rem;
+    padding: 3rem 3rem;
+  }
+
+  .brand {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 5rem;
+  }
+
+  .container {
+    padding: 1rem 2rem;
+  }
+
+  ul {
+    font-size: 1.2rem;
+    gap: 0.6rem;
+  }
+
+  nav {
+    gap: 0.8rem;
   }
 }
