@@ -28,6 +28,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
+  request(
+    {
+      method: "POST",
+      uri: "https://notify-api.line.me/api/notify",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      auth: {
+        bearer: "tCTzhJ91NOYoKA0C9x2jsW4HdYU5EFOdxWob6vKeR79",
+      },
+      form: {
+        message: "\nขณะนี้มีผู้คนเข้ามาชมเว็บไซต์ของคุณ",
+      },
+    },
+    (err, httpResponse, body) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(body);
+      }
+    }
+  );
   blog.find({}, function (err, foundItems) {
     res.render("home", {
       startingContent: homeStartingContent,
@@ -115,7 +137,7 @@ app.post("/", function (req, res) {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 3000;
 }
 app.listen(port);
 
