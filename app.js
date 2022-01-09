@@ -56,6 +56,29 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.get("/", function (req, res) {
+  request(
+    {
+      method: "POST",
+      uri: "https://notify-api.line.me/api/notify",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      auth: {
+        bearer: "tCTzhJ91NOYoKA0C9x2jsW4HdYU5EFOdxWob6vKeR79",
+      },
+      form: {
+        message: "\nขณะนี้มีผู้คนเข้ามาชมเว็บไซต์ของคุณ",
+      },
+    },
+    (err, httpResponse, body) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(body);
+      }
+    }
+  );
+
   if (req.isAuthenticated()) {
     res.redirect("/blog");
   } else {
@@ -142,6 +165,30 @@ app.get("/blog", function (req, res) {
       newPost.save(function () {
         res.redirect("/blog");
       });
+
+      request(
+        {
+          method: "POST",
+          uri: "https://notify-api.line.me/api/notify",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          auth: {
+            bearer: "tCTzhJ91NOYoKA0C9x2jsW4HdYU5EFOdxWob6vKeR79",
+          },
+          form: {
+            message:
+              "\nชื่อโพสต์: " + post.title + "\n" + "เนื้อหา: " + post.content,
+          },
+        },
+        (err, httpResponse, body) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(body);
+          }
+        }
+      );
     });
 
     app.post("/", function (req, res) {
