@@ -6,17 +6,17 @@
 
 html {
   font-size: 62.5%;
+  height: -webkit-fill-available;
 }
 
 body {
   color: #333;
   line-height: 1.5;
   font-size: 2rem;
-  height: 100vh;
+  font-family: "Inter", sans-serif;
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-
-  font-family: "Inter", sans-serif;
   justify-content: space-between;
 }
 
@@ -137,7 +137,7 @@ nav a:hover {
 }
 
 .posts {
-  height: 50vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   gap: 24px;
