@@ -19,15 +19,30 @@ body {
   font-family: "Inter", sans-serif;
   justify-content: space-between;
 }
+
+.form {
+  padding: 0 10%;
+}
 .input {
-  padding: 1% 1%;
+  padding: 2% 2%;
 }
 .button-form {
-  background: none;
-  border: 3px solid #4dabf7;
+  margin-top: 24px;
+  background: #4dabf7;
+  border: none;
+  color: #fff;
+
   width: 100%;
-  padding: 0.5% 4%;
+  padding: 2% 4%;
   cursor: pointer;
+  border-radius: 1000px;
+  transition: all 0.5s;
+}
+
+.button-form:hover {
+  box-shadow: inset 0 0 0 3px #1971c2;
+  background-color: #fff;
+  color: #1971c2;
 }
 
 .home-link {
@@ -41,8 +56,14 @@ body {
   background-color: #1971c2;
   text-align: center;
   border-radius: 1000px;
-  /* width: 50%; */
-  flex-grow: 1;
+  flex: 1;
+  padding: 2% 0;
+}
+
+.button-home:hover {
+  background: none;
+  box-shadow: inset 0 0 0 3px #1971c2;
+  color: #1971c2;
 }
 
 a {
@@ -98,8 +119,6 @@ nav a:hover {
 
 .main-blog {
   padding: 3% 25%;
-  flex: 1;
-  justify-content: center;
 }
 
 .footer-padding {
@@ -112,40 +131,36 @@ nav a:hover {
 }
 
 .main-blog {
-  flex-shrink: 1;
   display: flex;
   flex-direction: column;
+  gap: 32px;
 }
 
 .posts {
-  height: 40vh;
-  overflow-y: scroll;
-  flex-shrink: 1;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow-y: scroll;
 }
 
 .post {
-  flex-shrink: 0;
+  flex-shrink: 1;
   display: grid;
   grid-template-columns: 1fr 0.2fr;
   align-items: center;
+  column-gap: 48px;
 }
 
 .delete-form {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .info-user {
-  flex-basis: 20%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-}
-.header {
-  margin-bottom: 32px;
 }
 
 .logout {
@@ -216,11 +231,12 @@ textarea {
 }
 
 .author {
-  justify-self: end;
+  display: flex;
+  justify-content: flex-end;
 }
 @media screen and (max-width: 1000px) {
   .main-blog {
-    padding: 3rem 3rem;
+    padding: 0rem 3rem;
   }
 
   .brand {

@@ -92,21 +92,27 @@ app.get("/login", function (req, res) {
   }
 });
 
-app.post("/login", function (req, res) {
+app.post("/login", function (req, res, next) {
   const user = new User({
     username: req.body.username,
     password: req.body.password,
   });
-
-  req.login(user, function (err) {
+  passport.authenticate("local", function (err, user, info) {
     if (err) {
-      console.log(err);
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.redirect("/blog");
-      });
+      return next(err);
     }
-  });
+    // Redirect if it fails
+    if (!user) {
+      return res.redirect("/login");
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      // Redirect if it succeeds
+      return res.redirect("/blog");
+    });
+  })(req, res, next);
 });
 
 app.get("/blog", function (req, res) {
