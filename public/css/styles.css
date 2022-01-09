@@ -12,11 +12,10 @@ body {
   color: #333;
   line-height: 1.5;
   font-size: 2rem;
-
+  height: 100vh;
   display: flex;
   flex-direction: column;
 
-  height: 100vh;
   font-family: "Inter", sans-serif;
   justify-content: space-between;
 }
@@ -129,7 +128,7 @@ nav a:hover {
 .post {
   flex-shrink: 0;
   display: grid;
-  grid-template-columns: 1fr 256px;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 }
 
