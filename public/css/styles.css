@@ -189,7 +189,7 @@ textarea {
 .btn {
   background-color: #1971c2;
   border: 3px solid white;
-  padding: 3% 5%;
+  padding: 1.5rem 3rem;
   border-radius: 200px;
   cursor: pointer;
   color: white;
@@ -225,6 +225,10 @@ textarea {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
+}
+
+.compose {
+  margin-bottom: 24px;
 }
 
 .content {
