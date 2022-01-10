@@ -1,6 +1,44 @@
-<%- include("partials/header"); -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles-post.css" />
+  
+  </head>
+
+
+  <body>
+
+
+
+    <div class="container">
+      <nav>
+      
+        <p class="brand">DAILY JOURNAL</p>
+        <ul>
+          <li id="home"><a href="/">HOME</a></li>
+          <li id="compose"><a href="/compose">COMPOSE</a></li>
+        </ul>
+      </nav>
+    
+      </div>
+    <div class="main-post">
 
   <h1><%=title%></h1>
   <p><%=content%></p>
+</div>
+<div class="footer-padding">
+  <div class="footer">
+    <p>Made By Bhitthawat Chindawat</p>
+  </div>
+</div>
 
-<%- include("partials/footer"); -%>
+</body>
+</html>
+
