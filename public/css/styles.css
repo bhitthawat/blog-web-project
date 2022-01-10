@@ -139,7 +139,7 @@ nav a:hover {
 }
 
 .posts {
-  height: 42vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   gap: 24px;
