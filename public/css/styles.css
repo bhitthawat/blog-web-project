@@ -127,7 +127,7 @@ nav a:hover {
 }
 
 .main-blog {
-  margin: 3% 0;
+  margin: 2% 0;
   padding: 0% 25%;
   flex: 1;
   display: flex;
@@ -242,6 +242,7 @@ textarea {
 }
 @media screen and (max-width: 1000px) {
   .main-blog {
+    margin: 6% 0;
     padding: 0rem 3rem;
   }
 
