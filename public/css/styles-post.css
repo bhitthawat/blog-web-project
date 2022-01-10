@@ -238,8 +238,9 @@ textarea {
   justify-content: flex-end;
 }
 @media screen and (max-width: 1000px) {
-  .main-blog {
-    padding: 0rem 3rem;
+  .main-post {
+    margin: 3rem 3rem;
+    padding: 0;
   }
 
   .brand {
